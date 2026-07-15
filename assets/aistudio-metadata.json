@@ -1,0 +1,6 @@
+{
+  "name": "Journal Finder AI",
+  "description": "AI-powered academic journal finder that analyzes research abstracts and matches them with the best suitable journals based on methodology, topic, and quality metrics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
