@@ -25,10 +25,22 @@ export class LLMService {
       publisher: j.publisher || "Unknown",
       url: j.url || "",
       metrics: {
-        ...j.metrics,
+        impactFactor: j.metrics?.impactFactor ?? "N/A",
+        quartile: j.metrics?.quartile ?? "N/A",
+        apc: j.metrics?.apc ?? "N/A",
+        reviewSpeed: j.metrics?.reviewSpeed ?? "N/A",
+        acceptanceRate: j.metrics?.acceptanceRate ?? "N/A",
         indexing: Array.isArray(j.metrics?.indexing) ? j.metrics.indexing : [],
       },
-      breakdown: j.breakdown || {},
+      breakdown: {
+        topic: j.breakdown?.topic ?? 0,
+        quality: j.breakdown?.quality ?? 0,
+        acceptance: j.breakdown?.acceptance ?? 0,
+        speed: j.breakdown?.speed ?? 0,
+        apc: j.breakdown?.apc ?? 0,
+        publisher: j.breakdown?.publisher ?? 0,
+        spread: j.breakdown?.spread ?? 0,
+      },
       warnings: Array.isArray(j.warnings) ? j.warnings : []
     }));
     return data;

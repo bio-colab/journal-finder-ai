@@ -10,8 +10,23 @@ interface JournalCardProps {
 
 export function JournalCard({ journal, index }: JournalCardProps) {
   // Ensure we have fallbacks for undefined properties to prevent crashes
-  const metrics = journal.metrics || {};
-  const breakdown = journal.breakdown || {};
+  const metrics = journal.metrics ?? {
+    impactFactor: "N/A",
+    quartile: "N/A",
+    apc: "N/A",
+    reviewSpeed: "N/A",
+    acceptanceRate: "N/A",
+    indexing: [],
+  };
+  const breakdown = journal.breakdown ?? {
+    topic: 0,
+    quality: 0,
+    acceptance: 0,
+    speed: 0,
+    apc: 0,
+    publisher: 0,
+    spread: 0,
+  };
   const indexing = Array.isArray(metrics.indexing) ? metrics.indexing : [];
   const warnings = Array.isArray(journal.warnings) ? journal.warnings : [];
 
